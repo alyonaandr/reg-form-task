@@ -1,0 +1,10 @@
+node_modules/
+/.idea
+package-lock.json
+/**/Thumbs.db
+/**/*.DS_Store
+yarn.lock
+/.vscode
+package-lock.json
+/.gulp/
+config-tinypng.js

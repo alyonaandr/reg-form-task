@@ -1,0 +1,18 @@
+.responsive (@maxWidth; @rules) {
+    @media screen and (max-width: @maxWidth) {
+        @rules();
+    }
+}
+
+.responsive-landscape (@maxWidth; @rules) {
+    @media screen and (orientation: landscape) and (max-width: @maxWidth) {
+        @rules();
+    }
+}
+
+// Usage Ex
+//.form {
+//    .responsive (@laptop_l, {
+//        margin-top: 10px;
+//    });
+//}

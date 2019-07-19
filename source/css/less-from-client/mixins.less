@@ -1,0 +1,178 @@
+/*  ----------------------------------------------------------------------------
+   	/Mixins
+   	---------------------------------------------------------------------------- */
+
+/*  variables import
+	---------------------------------------------------------------------------- */
+	@import "init.less";
+
+
+
+/*  Fonts
+	---------------------------------------------------------------------------- */
+	/*Font sizes (primary sizing in `rem` units with a fallback of `px`)*/
+	.font-size (@size:@default-font-size ) {
+		@remValue: (@size / 16);
+		@pxValue: (@size);
+		font-size: ~"@{pxValue}px";
+		font-size: ~"@{remValue}rem";
+	}
+
+	/*Line height sizes (primary sizing in `rem` units with a fallback of `px`)*/
+	.line-height (@size:@default-line-height) {
+		@remValue: (@size / 16);
+		@pxValue: (@size);
+		line-height: ~"@{pxValue}px";
+		line-height: ~"@{remValue}rem";
+	}
+
+	.font-size-height(@size:16, @line-height) {
+		.font-size (@size);
+		.line-height (@line-height);
+	}
+
+
+
+/*  Display
+	---------------------------------------------------------------------------- */
+
+	.none{ display: none; }
+	.inline-block {
+		display: inline-block;
+		vertical-align: top;
+		// margin-right: -4px;
+	}
+	.table{
+		display: table;
+		table-layout: fixed;
+	}
+
+
+
+/*  Sprite
+	---------------------------------------------------------------------------- */
+	.sprite {
+		background-image: url('/images/sprites.png@{timestamp}');
+		background-repeat: no-repeat;
+
+		@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+			background-image: url('/images/sprites@2x.png@{timestamp}');
+			background-size: 500px;
+		}
+	}
+
+
+
+/*  typography
+	---------------------------------------------------------------------------- */
+	.font-smoothing(@smooth: antialiased){
+		-webkit-font-smoothing: @smooth;
+		-moz-font-smoothing: @smooth;
+		-o-font-smoothing: @smooth;
+	}
+	.font-smoothing(@smooth) when (@smooth = antialiased) {
+	    -moz-osx-font-smoothing: grayscale;
+	}
+	.font-smoothing(@smooth) when (@smooth = none) {
+	    -moz-osx-font-smoothing: auto;
+	}
+
+
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#liga
+	.font-ligatures {
+		font-variant-ligatures: common-ligatures;
+		-moz-font-feature-settings: "liga", "clig";
+		-webkit-font-feature-settings: "liga", "clig";
+		font-feature-settings: "liga", "clig";
+	}
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#calt
+	.font-alternate {
+		font-variant-ligatures: contextual;
+		-moz-font-feature-settings: "calt";
+		-webkit-font-feature-settings: "calt";
+		font-feature-settings: "calt";
+	}
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#dlig
+	.font-dlig {
+		font-variant-ligatures: discretionary-ligatures;
+		-moz-font-feature-settings: "dlig";
+		-webkit-font-feature-settings: "dlig";
+		font-feature-settings: "dlig";
+	}
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#smcp
+	.font-smallcaps {
+		font-variant-caps: small-caps;
+		-moz-font-feature-settings: "smcp";
+		-webkit-font-feature-settings: "smcp";
+		font-feature-settings: "smcp";
+	}
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#salt
+	.font-style-alternate {
+		-moz-font-feature-settings: "salt";
+		-webkit-font-feature-settings: "salt";
+		font-feature-settings: "salt";
+	}
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#onum
+	.font-ald-num {
+		font-variant-numeric: oldstyle-nums;
+		-moz-font-feature-settings: "onum";
+		-webkit-font-feature-settings: "onum";
+		font-feature-settings: "onum";
+	}
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#kern
+	.font-kerning {
+		font-kerning: normal;
+		-moz-font-feature-settings: "kern";
+		-webkit-font-feature-settings: "kern";
+		font-feature-settings: "kern";
+	}
+
+	// https://helpx.adobe.com/typekit/using/open-type-syntax.html#tnum
+	.tabular-nums {
+		font-variant-numeric: tabular-nums;
+		-moz-font-feature-settings: "tnum";
+		-webkit-font-feature-settings: "tnum";
+		font-feature-settings: "tnum";
+	}
+
+
+
+/*  others
+	---------------------------------------------------------------------------- */
+
+	.scrollbars {
+		::-webkit-scrollbar {
+		    width: 6px;
+		}
+		::-webkit-scrollbar-track {
+		    border-radius: 0;
+		    background:rgba(0,0,0,0.1);
+		}
+		::-webkit-scrollbar-thumb {
+		    background: #333;
+		}
+	}
+
+	.webkit-scrolling {
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.column(@col-num:2, @col-grap:2em, @col-rule: none){
+		          column-count: @col-num;
+		          column-gap: @col-grap;
+		          column-rule: @col-rule;
+	}
+
+	.user-select (@arguments) {
+		-webkit-user-select: @arguments;
+		   -moz-user-select: @arguments;
+			-ms-user-select: @arguments;
+				user-select: @arguments;
+	}

@@ -1,0 +1,108 @@
+
+/*  ----------------------------------------------------------------------------
+   	css import
+   	---------------------------------------------------------------------------- */
+
+
+/*  initial setup, less variables, fonts imports, grid config
+	---------------------------------------------------------------------------- */
+	@import "init.less";
+
+/*  usefull mixins and resources
+	---------------------------------------------------------------------------- */
+	@import (reference) "mixins.less";
+
+/*  normalize reset to get identical basic render for HTML elements under all browsers
+	---------------------------------------------------------------------------- */
+	@import "reset.less";
+
+/*  basic style of HTML elements + helper classes
+	---------------------------------------------------------------------------- */
+	@import "global.less";
+
+/*  form basic style + formbuilder classes
+	---------------------------------------------------------------------------- */
+	@import "form.less";
+
+/*  buttons style
+	---------------------------------------------------------------------------- */
+	@import "buttons.less";
+
+/*  grid generator, based on grid setup in init.less
+	---------------------------------------------------------------------------- */
+	@import "grid.less";
+
+/*  main layout + header + footer
+	---------------------------------------------------------------------------- */
+	@import "layout.less";
+
+/*  plugins if required - not recommanded - temporary or only if necessary
+	---------------------------------------------------------------------------- */
+	// @import url(/js/fancybox/jquery.fancybox.css);
+	// @import "//cdnjs.cloudflare.com/ajax/libs/flickity/2.0.5/flickity.min.css";
+	// @import "../../js/fancybox/jquery.fancybox.css";
+
+/*  all pages & classes block, based on BEM model
+	---------------------------------------------------------------------------- */
+	@import "template.less";
+
+/*  IE & old browser support
+	---------------------------------------------------------------------------- */
+	@import "support.less";
+
+
+
+/*  ----------------------------------------------------------------------------
+
+	properties structure:
+
+	properties in selector need to follow the order below.
+	the properties between '---' do at least need to be group together
+
+	.class{
+		content:'';
+		---
+		position
+		z-index
+		top
+		left
+		right
+		bottom
+		---
+		display
+		flex properties
+		vertical-align
+		overflow
+		---
+		width
+		height
+		---
+		max-width
+		max-height
+		---
+		margin
+		padding
+		---
+		border
+		border-radius
+		background
+		---
+		text properties
+		---
+		fonts properties
+		---
+		font-size
+		line-height
+		---
+		color
+		---
+		pointer-events
+		---
+		opacity
+		---
+		transform
+		---
+		transition
+	}
+
+---------------------------------------------------------------------------- */

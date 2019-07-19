@@ -1,0 +1,82 @@
+
+
+/*  ----------------------------------------------------------------------------
+   	/Less variables / mixins
+   	---------------------------------------------------------------------------- */
+
+
+/* 	Timestamp (for sprites or image from CSS )
+   	---------------------------------------------------------------------------- */
+	@date: "new Date().getTime()";
+	@timestamp: "?v=@{date}";
+
+
+
+/* 	import (if required)
+   	---------------------------------------------------------------------------- */
+   	@import (less) url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Libre+Baskerville:400,700');
+
+
+
+/* 	Fonts
+   	---------------------------------------------------------------------------- */
+	@font-body: 				'Libre Baskerville', Georgia, "Times New Roman", Times, serif;
+	@font-heading:	 			'Montserrat', Helvetica, Arial, Geneva, Verdana, Tahoma, "Trebuchet MS", sans-serif;
+	@font-code:					'courier new', monospace, serif;
+	@font-weight-reg:			400;
+	@font-weight-bold:			700;
+	@font-weight-code:			400;
+	@default-font-size:			1rem;
+	@default-line-height:		1.5;
+
+
+
+/*  Colors
+   	---------------------------------------------------------------------------- */
+   	@color-background: 			#fff;
+	@color-body: 				#444;
+	@color-link: 				#FF5335;
+	@color-link-hover:			#306E73;
+	@color-link-visited:		purple;
+	@color-alert: 				#d04949;
+	@color-border:				#e5e5e5;
+	@color-blue: 				#306E73;
+	@color-brown: 				#B29C85;
+
+
+
+/* 	Breakpoint
+   	---------------------------------------------------------------------------- */
+	@xl-break: 90em;	//1440px
+	@l-break: 70em;		//1120px
+	@m-break: 60em;		//960px
+	@s-break: 40em;		//640px
+
+
+
+/* 	Grid config
+   	---------------------------------------------------------------------------- */
+	/* this need to be update to match the grid requirment */
+	@half-gutter-width:		1.25rem;
+	@gutter-compensation:	0;
+	@outer-margin:			1.25rem;
+	@grid-columns:          12;
+
+
+
+/*  Forms
+   	---------------------------------------------------------------------------- */
+	@placeholder-color:			#999;
+	@field-color:				#444;
+	@field-bg-color:			#fff;
+	@field-border-color:		#ccc;
+	@field-border-color-focus:	#f7c723;
+	@field-padding:				.625rem;
+
+
+
+/*  Easings
+	---------------------------------------------------------------------------- */
+	@ease-in-out-back: 			cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
+	@ease-in-out-quint: 		cubic-bezier(0.86, 0, 0.07, 1);
+	@ease-out-expo: 			cubic-bezier(0.19, 1, 0.22, 1);

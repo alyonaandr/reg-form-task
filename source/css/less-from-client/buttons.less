@@ -1,0 +1,81 @@
+
+/*  ----------------------------------------------------------------------------
+   	/Buttons
+   	---------------------------------------------------------------------------- */
+
+/* remove button appearance */
+button{
+	-webkit-border-radius: 0;
+	-webkit-appearance: none;
+	padding: 0;
+    margin: 0;
+	background: transparent;
+	border: 0;
+    font: inherit;
+    color: @field-color;
+}
+
+button,
+.button {
+	display: inline-block;
+	overflow: visible;
+	text-transform: none;
+	font-family: @font-heading;
+	cursor: pointer;
+}
+
+.button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	margin-top: .25rem;
+	padding: 1rem 3rem;
+	-webkit-border-radius: 0;
+	-webkit-appearance: none;
+	border: 0;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:focus{
+		outline: 1px dotted fade(@color-body, 50%);
+		outline-offset: .25rem;
+	}
+}
+button[disabled],
+html input[disabled] {
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	filter: alpha(opacity=40);
+	cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+
+/*  variations
+   	----------------------------------------------------------------------------
+
+	<button class="button button__inline">
+		<span class="txt">label</span>
+		<i class="icon icon__arrow-right"></i>
+	</button>
+
+	icons should be now in SVG
+
+   	---------------------------------------------------------------------------- */
+
+.button .txt {
+	display: inline-block;
+	vertical-align: middle;
+}
+.button .icon + .txt {
+	margin-left: .625rem;
+}
+.button .txt + .icon {
+	margin-left: .625rem;
+}
+.button__inline{
+	
+}

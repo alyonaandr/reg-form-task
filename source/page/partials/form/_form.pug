@@ -1,0 +1,50 @@
+section.register-form
+    .register-form__title
+        h1.register-form__name Sign up for free!
+        .register-form__decor
+    form(id="registerForm", action="#", enctype="multipart/form-data", method="post", name="register-form", novalidate).register-form__form.form
+        .form__block
+            .form__item
+                label.form__item-name I am
+                .form__radio-block
+                    input(type="radio", name="Gender", id="gender-f", value="male", checked)
+                    input(type="radio", name="Gender", id="gender-m", value="female")
+            .form__item.form__select
+                label(for="year").form__item-name Year of birth
+                - var n = 2019;
+                select(id="year", name="Year").form__item-select
+                    while n > 1900
+                        option= n--
+                .form__error.error-msg
+                    p.error-msg__text You must be at least 18 year old
+            .form__item
+                label(for="email").form__item-name Email
+                input(type="email", id="email", name="Email").form__item-input
+                .form__error.error-msg.error-msg--empty
+                    p.error-msg__text This field can't be empty
+                .form__error.error-msg.error-msg--wrong
+                    p.error-msg__text Please include an ‘@’ in the email address
+            .form__item
+                label(for="password").form__item-name Password
+                input(type="password", id="password", name="Password").form__item-input
+                .form__error.error-msg
+                    p.error-msg__text This field can't be empty
+            .form__item
+                label(for="postalCode").form__item-name Postal Code
+                input(type="text", id="postalCode", name="PostalCode").form__item-input
+                .form__error.error-msg
+                    p.error-msg__text This field can't be empty
+            .form__info
+                .form__info-block
+                    img.form__info-icon(src="./img/icon/map-icon.png" alt="icon")
+                    p.form__info-text E.g. Berlin or 10432
+                button.form__info-btn ?
+                .form__btn-info
+                    p.form__btn-info-text We don’t use postal codes to contact members directly
+        .form__footer
+            input(type="submit", value="REGISTER NOW!").form__btn
+            p.form__policy By clicking the button above you agree to our
+                a(href="#")  Terms of Use
+                |  and
+                a(href="#")  Privacy Policy
+                |  including use of cookies.
