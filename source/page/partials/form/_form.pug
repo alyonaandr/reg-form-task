@@ -7,8 +7,12 @@ section.register-form
             .form__item
                 label.form__item-name I am
                 .form__radio-block
-                    input(type="radio", name="Gender", id="gender-f", value="male", checked)
-                    input(type="radio", name="Gender", id="gender-m", value="female")
+                    .form__radio-block-item
+                        input(type="radio", name="Gender", id="gender-f", value="male", checked)
+                        i.form__radio-block-icon.fas.fa-mars
+                    .form__radio-block-item
+                        input(type="radio", name="Gender", id="gender-m", value="female")
+                        i.form__radio-block-icon.fas.fa-venus
             .form__item.form__select
                 label(for="year").form__item-name Year of birth
                 - var n = 2019;

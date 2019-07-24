@@ -6,11 +6,11 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/x-icon" href="img/page/icon/favicon.ico">
+    <!--link(rel="shortcut icon" type="image/x-icon" href="img/page/icon/favicon.ico")-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <main class="main-block">
@@ -24,8 +24,12 @@
             <div class="form__item">
               <label class="form__item-name">I am</label>
               <div class="form__radio-block">
-                <input type="radio" name="Gender" id="gender-f" value="male" checked>
-                <input type="radio" name="Gender" id="gender-m" value="female">
+                <div class="form__radio-block-item">
+                  <input type="radio" name="Gender" id="gender-f" value="male" checked><i class="form__radio-block-icon fas fa-mars"></i>
+                </div>
+                <div class="form__radio-block-item">
+                  <input type="radio" name="Gender" id="gender-m" value="female"><i class="form__radio-block-icon fas fa-venus"></i>
+                </div>
               </div>
             </div>
             <div class="form__item form__select">
