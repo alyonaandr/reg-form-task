@@ -179,8 +179,14 @@
             <div class="form__item">
               <label class="form__item-name" for="postalCode">Postal Code</label>
               <input class="form__item-input" type="text" id="postalCode" name="PostalCode">
-              <div class="form__error error-msg">
+              <div class="form__error error-msg error-msg--empty">
                 <p class="error-msg__text">This field can't be empty</p>
+              </div>
+              <div class="form__error error-msg error-msg--wrong-lot">
+                <p class="error-msg__text">A lot of letters</p>
+              </div>
+              <div class="form__error error-msg error-msg--wrong-few">
+                <p class="error-msg__text">There are few letters</p>
               </div>
             </div>
             <div class="form__info">

@@ -36,8 +36,12 @@ section.register-form
             .form__item
                 label(for="postalCode").form__item-name Postal Code
                 input(type="text", id="postalCode", name="PostalCode").form__item-input
-                .form__error.error-msg
+                .form__error.error-msg.error-msg--empty
                     p.error-msg__text This field can't be empty
+                .form__error.error-msg.error-msg--wrong-lot
+                    p.error-msg__text A lot of letters
+                .form__error.error-msg.error-msg--wrong-few
+                    p.error-msg__text There are few letters
             .form__info
                 .form__info-block
                     img.form__info-icon(src="./img/icon/map-icon.png" alt="icon")

@@ -38,14 +38,39 @@ $(document).ready(function () {
         validationPerOneAction($this, ($this.val().length === 0));
     });
 
-    postalCode.on("blur", function () {
-        let $this = $(this);
-        validationPerOneAction($this, ($this.val().length === 0));
-    });
-
     year.on("blur", function () {
         let $this = $(this);
         validationPerOneAction($this, ($this.val() > 2001));
+    });
+
+    postalCode.on("keyup", function () {
+        let $this = $(this);
+        for (i = 0; i < $this.val().length; i++) {
+
+            $this.parent().find(".error-msg--wrong-few").removeClass("active__error-msg");
+            $this.parent().find(".error-msg--wrong-lot").removeClass("active__error-msg");
+
+            addAndRemoveClasses($this, "error", "valid");
+
+            if (($this.val().length < 5) && ($this.val().length !== 0)) {
+                $this.parent().find(".error-msg--wrong-few").addClass("active__error-msg");
+            } else if ($this.val().length > 30) {
+                $this.parent().find(".error-msg--wrong-lot").addClass("active__error-msg");
+            } else {
+                addAndRemoveClasses($this, "valid", "error");
+            }
+        }
+    });
+    postalCode.on("blur", function () {
+        let $this = $(this);
+        $this.parent().find(".error-msg--wrong-few").removeClass("active__error-msg");
+        $this.parent().find(".error-msg--wrong-lot").removeClass("active__error-msg");
+        if ($this.val().length === 0) {
+            addAndRemoveClasses($this, "error", "valid");
+            $this.parent().find(".error-msg--empty").addClass("active__error-msg");
+        } else {
+            addAndRemoveClasses($this, "valid", "error");
+        }
     });
 
     //clear inputs on focus
@@ -66,11 +91,25 @@ $(document).ready(function () {
         }
     });
 
-    //btn question active
+    // btn question active
     $(".form__info-btn").click(function (event) {
         let $this = $(this);
         event.preventDefault();
         $this.parent().find(".form__btn-info").toggleClass("active__btn-info");
+    });
+    $(".form__info-btn").on("mouseover", function () {
+        let $this = $(this);
+        let active = $this.parent().find(".form__btn-info").hasClass("active__btn-info");
+        if (active !== true) {
+            $this.parent().find(".form__btn-info").addClass("active__btn-info");
+        }
+    });
+    $(".form__info-btn").on("mouseout", function () {
+        let $this = $(this);
+        let noactive = $this.parent().find(".form__btn-info").hasClass("active__btn-info");
+        if (noactive === true) {
+            $this.parent().find(".form__btn-info").removeClass("active__btn-info");
+        }
     });
 
     $("#registerForm").submit(function(e) {
@@ -110,8 +149,14 @@ $(document).ready(function () {
             }
 
             if (postalCode.val().length === 0) {
-                smallFunctionForValidateFields("#postalCode", ".error-msg");
+                smallFunctionForValidateFields("#postalCode", ".error-msg--empty");
                 validatePostalCode = false;
+            } else if ((postalCode.val().length < 5) && (postalCode.val().length !== 0)) {
+                smallFunctionForValidateFields("#postalCode", ".error-msg--wrong-few");
+                validateEmail = false;
+            } else if (postalCode.val().length > 30) {
+                smallFunctionForValidateFields("#postalCode", ".error-msg--wrong-lot");
+                validateEmail = false;
             }
 
             if (validateYear && validateEmail && validatePassword && validatePostalCode) {
@@ -129,5 +174,5 @@ $(document).ready(function () {
             console.log('Validation form error!');
         }
 
-    })
+    });
 });
