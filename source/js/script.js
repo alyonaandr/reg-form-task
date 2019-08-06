@@ -20,12 +20,29 @@ $(document).ready(function () {
     };
 
     //check inputs are empty or valid
+
+    // email.on("blur", function () {
+    //     let $this = $(this);
+    //     if ($this.val().length === 0) {
+    //         addAndRemoveClasses($this, "error", "valid");
+    //         $this.parent().find(".error-msg--empty").addClass("active__error-msg");
+    //     } else if (!($this.val().indexOf("@") > -1)) {
+    //         addAndRemoveClasses($this, "error", "valid");
+    //         $this.parent().find(".error-msg--wrong").addClass("active__error-msg");
+    //     } else {
+    //         addAndRemoveClasses($this, "valid", "error");
+    //     }
+    // });
+    // add regExp
+    let emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     email.on("blur", function () {
         let $this = $(this);
+        let emailValid = emailRegExp.test($this.val());
+
         if ($this.val().length === 0) {
             addAndRemoveClasses($this, "error", "valid");
             $this.parent().find(".error-msg--empty").addClass("active__error-msg");
-        } else if (!($this.val().indexOf("@") > -1)) {
+        } else if (!emailValid) {
             addAndRemoveClasses($this, "error", "valid");
             $this.parent().find(".error-msg--wrong").addClass("active__error-msg");
         } else {
@@ -138,7 +155,7 @@ $(document).ready(function () {
             if (email.val().length === 0) {
                 smallFunctionForValidateFields("#email", ".error-msg--empty");
                 validateEmail = false;
-            } else if (!(email.val().indexOf("@") > -1)) {
+            } else if (!(emailRegExp.test(email.val()))) {
                 smallFunctionForValidateFields("#email", ".error-msg--wrong");
                 validateEmail = false;
             }
